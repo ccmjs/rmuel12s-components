@@ -1,7 +1,7 @@
 # rmueller-components
 ccm components developed by René Müller
 
-| :#: | :Component: | :Version: | :Resources: |
+| # | Component | Version | Resources |
 |:---:|:---:|:---:|:---:|
 | 1 | [ccm.web3](https://master-thesis-19.gitlab.io/ccm_components/web3/ccm.web3.js) | [1.0.0](https://master-thesis-19.gitlab.io/ccm_components/web3/versions/ccm.web3-1.0.0.js), [2.0.0](https://master-thesis-19.gitlab.io/ccm_components/web3/versions/ccm.web3-2.0.0.js), [3.0.0](https://master-thesis-19.gitlab.io/ccm_components/web3/versions/ccm.web3-3.0.0.js) | [web3-1.0.0-beta.46.min.js](https://master-thesis-19.gitlab.io/ccm_components/web3/resources/web3-1.0.0-beta.46.min.js) |
 | 2 | [ccm.metamask](https://master-thesis-19.gitlab.io/ccm_components/metamask/ccm.metamask.js) | [1.0.0](https://master-thesis-19.gitlab.io/ccm_components/metamask/versions/ccm.metamask-1.0.0.js) | / |
