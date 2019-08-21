@@ -53,9 +53,7 @@
 
             /* Lifecycle */
 
-            this.init   = async () => {};
-            this.ready  = async () => {};
-            this.start  = async () => {
+            this.ready = async () => {
 
                 !this.data.storeUrl         && console.error ('Store URL is missing!');
                 !this.metamask.isMetaMask() && console.error ('MetaMask is required!', 'https://metamask.io/');
@@ -86,6 +84,9 @@
                 ];
 
                 this.data.contract = this.web3.eth.contract (this.abi, this.data.contractAddress);
+            };
+
+            this.start = async () => {
 
                 this.store.get (this.data.contractAddress)
                     .then   (result => this.data.mongo = result)
@@ -128,7 +129,7 @@
 
                 if (this.data.mongo.status === 2) {
 
-                    const frame = this.element.querySelector ('.time-frame');
+                    const timeFrame = this.element.querySelector ('.time-frame');
 
                     let delta =
                         this.data.mongo.workStarted +
@@ -140,14 +141,14 @@
                         const mm = (delta / 60 % 60);
                         const ss = delta % 60 % 60;
 
-                        frame.innerText = `${hh | 0}:${mm | 0}:${ss}`;
+                        timeFrame.innerText = `${hh | 0}:${mm | 0}:${ss}`;
 
                         delta--;
 
                         if (delta <= 0) {
 
-                            frame.classList.add ('text-danger');
-                            frame.innerText = 'Time is up!';
+                            timeFrame.classList.add ('text-danger');
+                            timeFrame.innerText = 'Time is up!';
 
                             window.clearInterval (this.data.interval);
                         }

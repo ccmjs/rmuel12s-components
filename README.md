@@ -12,11 +12,11 @@ ccm components developed by René Müller
 | 7 | [ccm.certificate_view](https://master-thesis-19.gitlab.io/ccm_components/certificate_request/ccm.certificate_view.js) | 1.0.0 | |
 | 8 | [ccm.certificate_approve](https://master-thesis-19.gitlab.io/ccm_components/certificate_request/ccm.certificate_approve.js) | 1.0.0 | |
 | 9 | [ccm.certificate_check](https://master-thesis-19.gitlab.io/ccm_components/certificate_request/ccm.certificate_check.js) | 1.0.0 | |
-| 10 | [ccm.crowdfunding_init](https://master-thesis-19.gitlab.io/ccm_components/component_request/ccm.crowdfunding_init.js) | 1.0.0 | |
-| 11 | [ccm.crowdfunding](https://master-thesis-19.gitlab.io/ccm_components/component_request/ccm.crowdfunding.js) | 1.0.0 |  |
-| 12 | [ccm.crowdfunding_list](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.crowdfunding_list.js) | 1.0.0 | |
-| 13 | [ccm.lottery](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.lottery.js) | 1.0.0 | |
-| 14 | [ccm.modal](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.modal.js) | 1.0.0| |
-| 15 | [ccm.store](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.store.js) | 1.0.0 | |
-| 16 | [ccm.timestamp_service](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.timestamp_service.js) | 1.0.0| |
-| 17 | [ccm.toast](https://master-thesis-19.gitlab.io/ccm_components/component_list/ccm.toast.js) | 1.0.0 | |
+| 10 | [ccm.crowdfunding_init](https://master-thesis-19.gitlab.io/ccm_components/corwdfunding_init/ccm.crowdfunding_init.js) | 1.0.0 | |
+| 11 | [ccm.crowdfunding](https://master-thesis-19.gitlab.io/ccm_components/crowdfunding/ccm.crowdfunding.js) | 1.0.0 |  |
+| 12 | [ccm.crowdfunding_list](https://master-thesis-19.gitlab.io/ccm_components/crowdfunding_list/ccm.crowdfunding_list.js) | 1.0.0 | |
+| 13 | [ccm.lottery](https://master-thesis-19.gitlab.io/ccm_components/lottery/ccm.lottery.js) | 1.0.0 | |
+| 14 | [ccm.modal](https://master-thesis-19.gitlab.io/ccm_components/modal/ccm.modal.js) | 1.0.0| |
+| 15 | [ccm.store](https://master-thesis-19.gitlab.io/ccm_components/store/ccm.store.js) | 1.0.0 | |
+| 16 | [ccm.timestamp_service](https://master-thesis-19.gitlab.io/ccm_components/timestamp_service/ccm.timestamp_service.js) | 1.0.0| |
+| 17 | [ccm.toast](https://master-thesis-19.gitlab.io/ccm_components/toast/ccm.toast.js) | 1.0.0 | |
