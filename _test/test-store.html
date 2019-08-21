@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - ccm.store.js</title>
+
+    <script src="https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js"></script>
+</head>
+<body>
+
+<script>
+
+    (async () => {
+
+        const config = {
+            storeContractAddress    : '0x6be82481c8c7ab019102607ce8df258d3ec08919',
+            privateKey              : '9c2fd3618acf55f1749e90a2a4275f87c851959c6707c10a43875923985cfa9f'
+        };
+
+        const store = await ccm.start(
+            '../store/ccm.store.js',
+            config
+        );
+
+        console.log ('getStore: ' + await store.getStore ());
+        console.log (await store.setStore ('ccm'));
+    })();
+</script>
+
+</body>
+</html>

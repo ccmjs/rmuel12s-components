@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - ccm.certificate_request.js</title>
+    <script src="https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js"></script>
+</head>
+<body>
+
+<div class="content">
+    <button>Request</button>
+</div>
+
+<script>
+    (() => {
+
+        const config = {
+            data: {
+                storeUrl: 'http://localhost:8080',
+                blurSelector: 'body div'
+            }
+        };
+
+        ccm.start ('../certificate_request/ccm.certificate_request.js', config)
+            .then (instance => {
+                document.querySelector ('button').onclick = () => {
+                    instance.requestCertificate ('1563199262280X41040029749658746');
+                };
+            });
+    })();
+</script>
+
+</body>
+</html>

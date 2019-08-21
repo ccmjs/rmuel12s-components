@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - ccm.toast.js</title>
+    <script src="https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js"></script>
+</head>
+<body>
+
+<h1>My test text</h1>
+
+<div class="toaster"></div>
+
+<script src="../toast/ccm.toast.js"></script>
+<script>
+    (async () => {
+        const config = {
+            title:          'My title',
+            body:           'config',
+            autostart:      false,
+            autohide:       false,
+            delay:          5000,
+            position:       'center',
+            //close:          event => console.log('config'),
+            blurSelector:   'h1',
+            root:           document.querySelector('.toaster')
+        };
+
+        const toast = await ccm.start(
+            '../toast/ccm.toast.js',
+            config
+        );
+
+        toast.closeCallback(event => {
+            toast.toggleBlur (false);
+        });
+
+        toast.changeState ('show');
+
+        toast.setTitle ('New title');
+        toast.setBody (`<a href="https://start.duckduckgo.com">DuckduckGO</a>`);
+        toast.setPosition ('top-center');
+        toast.setPosition ('top-right');
+    })();
+</script>
+</body>
+</html>

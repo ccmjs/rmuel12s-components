@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - ccm.metamask.js</title>
+
+    <script src="https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js">
+
+    </script>
+</head>
+<body>
+
+<script>
+    ( async () => {
+
+        const metamask = await ccm.start(
+            '../metamask/ccm.metamask.js',
+            {}
+        );
+
+        if (metamask.isMetaMask() && metamask.isConnected())
+            metamask.enable(accounts => console.log('init account: ' + accounts[0]));
+        else
+            console.error('metamask not installed');
+
+        console.log(metamask.getProvider());
+        console.log('networkVersion: ' + metamask.networkVersion());
+        console.log('selectedAddress: ' + metamask.selectedAddress());
+        console.log('isConnected: ' + metamask.isConnected());
+        console.log('isMetaMask: ' + metamask.isMetaMask());
+
+        metamask.onAccountsChanged (accounts => {
+            console.log('account switched: ' + accounts[0]);
+        });
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test - ccm.web3.js</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+
+    </script>
+    <script src="https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js"></script>
+</head>
+<body>
+
+<script>
+    ( async () => {
+
+        const abi = await $.getJSON('config/abi_store.json');
+
+        const web3 = await ccm.start(
+            '../web3/ccm.web3.js',
+            {
+                //provider: 'https://admin:un21n77w@vm-2d05.inf.h-brs.de/geth2'
+                provider: 'https://rinkeby.infura.io/v3/bf2ed7657ac94d3c87c16b46b821d90d'
+            }
+        );
+
+        // web3
+        //console.log(web3.setProvider(ethereum));
+        console.log(web3.givenProvider());
+        console.log(web3.currentProvider());
+        console.log('version: '                             + web3.version());
+
+        // web3.eth
+        console.log('eth.defaultBlock: '                    + web3.eth.defaultBlock());
+        console.log('eth.defaultAccount: '                  + web3.eth.defaultAccount());
+        console.log('eth.defaultGasPrice: '                 + web3.eth.defaultGasPrice());
+        console.log('eth.defaultGas: '                      + web3.eth.defaultGas());
+        console.log('eth.transactionBlockTimeout: '         + web3.eth.transactionBlockTimeout());
+        console.log('eth.transactionConfirmationBlocks: '   + web3.eth.transactionConfirmationBlocks());
+        console.log('eth.transactionPollingTimeout: '       + web3.eth.transactionPollingTimeout());
+        console.log('eth.getProtocolVersion: '              + await web3.eth.getProtocolVersion());
+        console.log('eth.isSyncing: '                       + await web3.eth.isSyncing());
+        console.log('eth.getCoinbase: '                     + await web3.eth.getCoinbase());
+        console.log('eth.isMining: '                        + await web3.eth.isMining());
+        console.log('eth.getHashrate: '                     + await web3.eth.getHashrate());
+        console.log('eth.getGasPrice: '                     + await web3.eth.getGasPrice());
+        console.log('eth.getAccounts: '                     + await web3.eth.getAccounts());
+        console.log('eth.getBlockNumber: '                  + await web3.eth.getBlockNumber());
+        console.log('eth.getBalance: '                      +
+            await web3.eth.getBalance(
+                '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                'latest'
+            )
+        );
+        console.log(await web3.eth.getBlock(web3.block.pending, false));
+        console.log('eth.getBlockTransactionCount: '        + await web3.eth.getBlockTransactionCount(web3.block.latest));
+        console.log(
+            await web3.eth.getTransaction('0xdab25ed7d949dc07230b55cb536bd700ca37a63afdee88755219480197f2ebe7')
+        );
+        console.log(await web3.eth.getTransactionFromBlock(2966, 0));
+        //console.log('eth.getTransactionReceipt: '           + await web3.eth.getTransactionReceipt(''));
+        console.log(
+            'eth.getTransactionCount: '                     +
+            await web3.eth.getTransactionCount(
+                '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                web3.block.latest
+            )
+        );
+        /*console.log(
+            web3.eth.sendTransaction({
+                from:   '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                to:     '0x7012612D450AFA352aD5528668771860b7F85fE9',
+                value:  100000000000000000
+            })
+        );*/
+        //console.log('eth.sendSignedTransaction: '           + await web3.eth.sendSignedTransaction());
+        console.log('eth.estimateGas: '                     +
+            await web3.eth.estimateGas({
+                from:   '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                to:     '0x7012612D450AFA352aD5528668771860b7F85fE9',
+                value:  100000000000000000
+            })
+        );
+        //console.log('eth.requestAccounts: '                 + await web3.eth.requestAccounts());
+
+        // web3.eth.contract
+        const contract = await web3.eth.contract.new(abi, '0xFA286dEF376b2405110bb96924F8bb2428b2d7a4');
+
+        console.log(contract.options);
+        console.log('contract.options.address: '            + contract.options.address);
+        console.log(contract.options.jsonInterface);
+
+        console.log('contract.call: '                       + await web3.eth.contract.call(contract, 'getStore'));
+
+        /*web3.eth.contract.send(
+            contract,
+            'setStore(string)',
+            [new Date().toString()],
+            {
+                from: '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                value: 0
+            })
+            .on('transactionHash'   , console.log)
+            .on('confirmation'      , console.log)
+            .on('receipt'           , console.log)
+            .on('error'             , console.error);*/
+
+        web3.eth.contract.events(contract, 'eStored', { fromBlock: 'latest' })
+            .on('data'      , console.log)
+            .on('changed'   , console.log)
+            .on('error'     , console.error);
+
+        // web3.eth.accounts
+        console.log(
+            web3.eth.accounts.privateKeyToAccount('0xb2a3a49f53f19a7b7c2490a38379d7fc09ac26b16b1fd58380ca2bf07d4234ac')
+        );
+        console.log(
+            await web3.eth.accounts.signTransaction({
+                to:     '0x2344dEE56158A6989d7de5256fFC965c218Da81C',
+                value:  web3.utils.toWei('1', web3.units.ether),
+                gas:    2100000
+            }, '0xb2a3a49f53f19a7b7c2490a38379d7fc09ac26b16b1fd58380ca2bf07d4234ac')
+        );
+
+        // web3.eth.net
+        console.log('eth.net.getId: '                       + await web3.eth.net.getId());
+        console.log('eth.net.isListening: '                 + await web3.eth.net.isListening());
+        console.log('eth.net.getPeerCount: '                + await web3.eth.net.getPeerCount());
+        //console.log('eth.net.getNetworkType: '              + await web3.eth.net.getNetworkType());
+
+        // web3.utils
+        console.log('utils.randomHex: '                     + web3.utils.randomHex(32));
+        console.log(web3.utils.BN(22));
+        console.log('utils.isBN: '                          + web3.utils.isBN(web3.utils.BN(22)));
+        console.log('utils.keccak256: '                     + web3.utils.keccak256('22'));
+        console.log('utils.isHex: '                         + web3.utils.isHex('c1912'));
+        console.log('utils.isHexStrict: '                   + web3.utils.isHexStrict('c1912'));
+        console.log('utils.isAddress: '                     + web3.utils.isAddress('0x22f6dD166430D11e226F4dEA36E1A94B934c043b'));
+        console.log('utils.toHex: '                         + web3.utils.toHex(234));
+        console.log('utils.hexToNumberString: '             + web3.utils.hexToNumberString('0xea'));
+        console.log('utils.toWei: '                         + web3.utils.toWei('0.1', web3.units.ether));
+        console.log('utils.fromWei: '                       + web3.utils.fromWei('1000000000000000000', web3.units.ether));
+        console.log(web3.utils.unitMap());
+
+    })();
+</script>
+
+</body>
+</html>

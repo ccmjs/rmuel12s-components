@@ -1,0 +1,15 @@
+/**
+ * @component ccm-crowdfunding
+ * @author René Müller <rene.mueller@smail.inf.h-brs.de> 2019
+ * @license MIT License
+ */
+
+.col-1, .col-2, .col-3, .col-4 {
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    padding: 0.4rem;
+}
+
+button { margin: 0 0.2rem 0 0.2rem !important; }
+
+.row div:last-child { border-right: 1px solid #ccc; }

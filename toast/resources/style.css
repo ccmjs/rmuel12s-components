@@ -1,0 +1,27 @@
+/**
+ * @component ccm-toast
+ * @author René Müller <rene.mueller@smail.inf.h-brs.de> 2019
+ * @license MIT License
+ * @version 1.0.0
+ */
+
+/* Bootstrap */
+.toast {
+    position: absolute;
+    min-width: 16rem;
+    margin: 1rem;
+    z-index: 100;
+}
+
+/* Positions */
+.top-left       { left: 0; top: 0; }
+.top-center     { left: 50%; top: 0; transform: translate(-50%, 0); }
+.top-right      { right: 0; top: 0; }
+
+.left-center    { left: 0; top: 50%; transform: translate(0, -50%); }
+.center         { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.right-center   { right: 0; top: 50%; transform: translate(0, -50%); }
+
+.bottom-left    { left: 0; bottom: 0; }
+.bottom-center  { left: 50%; bottom: 0; transform: translate(-50%, 0); }
+.bottom-right   { right: 0; bottom: 0; }

@@ -1,0 +1,11 @@
+/**
+ * @component ccm-certificate_approve
+ * @author René Müller <rene.mueller@smail.inf.h-brs.de> 2019
+ * @license MIT License
+ */
+
+.card { width: 32rem !important; margin: 0 auto; }
+
+#certificate { text-align: left; }
+
+i { min-width: 128px; display: inline-block; }

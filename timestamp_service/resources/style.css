@@ -1,0 +1,16 @@
+/**
+ * @component ccm-timestamp_service
+ * @author René Müller <rene.mueller@smail.inf.h-brs.de> 2019
+ * @license MIT License
+ */
+
+button span { margin-right: 0.4rem !important; }
+
+/* bootstrap */
+.card {
+    width: 32rem;
+    margin: 0 auto;
+}
+
+/* dropzone*/
+.dz-progress    { display: none !important; }
