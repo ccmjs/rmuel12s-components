@@ -11,7 +11,7 @@
     const component = {
 
         name: 'crowdfunding_list',
-        ccm: 'https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js',
+        ccm: '../ccm/ccm-21.2.0.min.js',
 
         config: {
             html: [
@@ -24,7 +24,7 @@
             ],
             css: [
                 'ccm.load', [
-                    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+                    '../ccm/bootstrap.min.css',
                     '../crowdfunding_list/resources/style.css'
                 ]
             ],

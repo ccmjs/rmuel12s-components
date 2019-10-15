@@ -11,7 +11,7 @@
     const component = {
 
         name: 'crowdfunding',
-        ccm: 'https://ccmjs.github.io/ccm/versions/ccm-21.2.0.min.js',
+        ccm: '../ccm/ccm-21.2.0.min.js',
 
         config: {
             web3: [
@@ -36,14 +36,14 @@
             ],
             css: [
                 'ccm.load', [
-                    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css',
+                    '../ccm/bootstrap.min.css',
                     '../crowdfunding/resources/style.css'
                 ]
             ],
             js: [
                 'ccm.load', [
-                    'https://code.jquery.com/jquery-3.4.1.min.js',
-                    'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+                    '../ccm/jquery-3.4.1.min.js',
+                    '../ccm/bootstrap.min.js'
                 ]
             ],
             store: [ 'ccm.store', { 'name': 'rmuel12s_crowdfunding' } ]
